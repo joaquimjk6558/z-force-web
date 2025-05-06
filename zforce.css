@@ -1,0 +1,493 @@
+/* ===== Reset e Variáveis ===== */
+:root {
+  --cor-primaria: #111;
+  --cor-secundaria: #333;
+  --cor-clara: #f2f2f2;
+  --cor-fundo: #282a2a;
+  --cor-destaque: #fff;
+  --cor-box: #f9f9f9;
+  --cor-borda: #ccc;
+  --cor-hover: #555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-clara);
+  line-height: 1.6;
+}
+
+/* ===== Header ===== */
+header {
+  background-color: #000;
+  padding: 10px 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: var(--cor-destaque);
+}
+
+.logo {
+  height: 80px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ===== Navegação ===== */
+nav {
+  background: var(--cor-secundaria);
+  text-align: center;
+  padding: 10px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+nav a {
+  color: var(--cor-destaque);
+  padding: 10px 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: var(--cor-hover);
+  outline: none;
+}
+
+/* ===== Hero ===== */
+.hero-section {
+  background: url('https://via.placeholder.com/1200x600/333/fff?text=Jiu-Jitsu+Vouk+Brasil') no-repeat center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-destaque);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+}
+
+/* ===== Conteúdo Principal ===== */
+.main-content {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+/* ===== Faixas ===== */
+.faixa-section {
+  background: var(--cor-box);
+  padding: 3rem 1.5rem;
+  color: var(--cor-secundaria);
+}
+
+.faixa-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.faixa-item {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.faixa-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.faixa-item p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* ===== Treinamentos ===== */
+.treinamento-section {
+  background: var(--cor-primaria);
+  color: var(--cor-clara);
+  padding: 2.5rem 1.5rem;
+  margin: 2.5rem auto;
+  max-width: 960px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.treinamento-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.treinamento-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.horarios-treino {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.horario {
+  background: #222;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.horario h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.horario p {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+/* ===== Loja ===== */
+.loja-section {
+  background: #fff;
+  color: #333;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.produto {
+  background: var(--cor-box);
+  padding: 1.25rem;
+  width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.produto img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.produto h3 {
+  margin: 10px 0;
+}
+
+.produto p {
+  margin-bottom: 15px;
+}
+
+.produto button {
+  background: var(--cor-primaria);
+  color: var(--cor-destaque);
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.produto button:hover,
+.produto button:focus {
+  background: var(--cor-hover);
+  outline: none;
+}
+
+/* ===== Carrinho ===== */
+.carrinho {
+  background: #eee;
+  padding: 1.25rem;
+  max-width: 600px;
+  margin: 2.5rem auto;
+  border-radius: 8px;
+  color: #333;
+}
+
+.carrinho ul {
+  list-style: none;
+  margin-bottom: 0.625rem;
+}
+
+.carrinho li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+/* ===== Aula Experimental ===== */
+.aula-experimental-section {
+  background: #f4f4f4;
+  padding: 1.25rem;
+  margin: 2.5rem auto;
+  max-width: 600px;
+  border-radius: 10px;
+  color: #333;
+}
+
+.aula-experimental-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aula-experimental-section input,
+.aula-experimental-section button {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.aula-experimental-section button {
+  background: var(--cor-primaria);
+  color: var(--cor-destaque);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.aula-experimental-section button:hover,
+.aula-experimental-section button:focus {
+  background: var(--cor-hover);
+  outline: none;
+}
+
+/* ===== Slideshow ===== */
+.slideshow-container {
+  max-width: 850px;
+  margin: 2.5rem auto;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.fade {
+  animation: fade 1.5s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== Chatbot Zinho ===== */
+#zinho-botao {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--cor-secundaria);
+  color: var(--cor-destaque);
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+
+#zinho-botao:hover,
+#zinho-botao:focus {
+  background: var(--cor-hover);
+  outline: none;
+}
+
+#zinho-chat {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.zinho-header {
+  background: var(--cor-primaria);
+  color: var(--cor-destaque);
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.zinho-mensagens {
+  padding: 15px;
+  height: 150px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  background: #f1f1f1;
+}
+
+.msg-zinho {
+  background: #131212;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.zinho-perguntas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px;
+  justify-content: center;
+  background: var(--cor-box);
+}
+
+.zinho-perguntas button {
+  flex: 1 1 45%;
+  padding: 8px;
+  background: var(--cor-secundaria);
+  color: var(--cor-destaque);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.zinho-perguntas button:hover,
+.zinho-perguntas button:focus {
+  background: var(--cor-hover);
+  outline: none;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+  .faixa-list,
+  .horarios-treino {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-content {
+    gap: 1rem;
+  }
+
+  /* Botão de chat */
+  #zinho-botao {
+    bottom: 15px;
+    right: 10px;
+    padding: 10px 15px;
+  }
+
+  /* Ajustes do Chat Zinho */
+  #zinho-chat {
+    width: 90%;
+    right: 5%;
+    bottom: 10px;
+    height: 70%; /* Ajuste a altura do chat */
+  }
+
+  .msg-zinho {
+    font-size: 14px; /* Ajuste o tamanho da fonte */
+    padding: 10px; /* Ajuste o espaçamento */
+  }
+
+  .zinho-header {
+    font-size: 16px; /* Tamanho de fonte para o cabeçalho */
+  }
+
+  .zinho-perguntas button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {}
+  .faixa-list,
+  .horarios-treino {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    height: 300px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  /* Ajustes do Chat Zinho */
+  #zinho-chat {
+    width: 95%;
+    right: 2%;
+    bottom: 5px;
+    height: 60%;  /* Mais altura para o chat */
+  }
+
+  .msg-zinho {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .zinho-header {
+    font-size: 14px;
+  } 
+
+  /* ===== Botão Limpar Chat ===== */
+#limpar-chat {
+  background: #ff5e57;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+#limpar-chat:hover,
+#limpar-chat:focus {
+  background: #ff3f33;
+  outline: none;
+}
