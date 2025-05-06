@@ -159,7 +159,10 @@
   <!-- Chatbot Zinho -->
   <div id="zinho-botao">🤖 Fale com o Zinho</div>
   <div id="zinho-chat">
-    <div class="zinho-header">Zinho</div>
+    <div class="zinho-header">
+      <span>Chat Zinho</span>
+      <button id="limpar-chat">Limpar Chat</button>
+    </div>
     <div class="zinho-mensagens" id="zinho-mensagens">
       <div class="msg-zinho">Olá! Eu sou o Zinho. Como posso te ajudar?</div>
     </div>
@@ -170,21 +173,15 @@
       <button data-topico="objetivo">Qual é o objetivo do Jiu-Jitsu?</button>
       <button data-topico="treinamento">Treinamento</button>
     </div>
-    <div id="zinho-chat">
-      <div class="zinho-header">
-        <span>Chat Zinho</span>
-        <button id="limpar-chat">Limpar Chat</button>
-      </div>
-      <div class="zinho-mensagens" id="zinho-mensagens">
-        <!-- As mensagens do chatbot vão aqui -->
-      </div>
-      <div class="zinho-perguntas">
-        <!-- Botões de resposta -->
-      </div>
-    </div>
   </div>
 
   <!-- Scripts -->
   <script src="zforce.js"></script>
+  <script>
+    document.getElementById('limpar-chat').addEventListener('click', function () {
+      const mensagens = document.getElementById('zinho-mensagens');
+      if (mensagens) mensagens.innerHTML = '';
+    });
+  </script>
 </body>
 </html>

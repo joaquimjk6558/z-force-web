@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== Chatbot Zinho =====
   const zinhoBotao = document.getElementById('zinho-botao');
   const zinhoChat = document.getElementById('zinho-chat');
-  const mensagensZinho = document.querySelector('.zinho-mensagens');
+  const mensagensZinho = document.getElementById('zinho-mensagens');
   const botoesPerguntas = document.querySelectorAll('.zinho-perguntas button');
+  const botaoLimparChat = document.getElementById('limpar-chat');
 
   // Toggle do chat
   zinhoBotao?.addEventListener('click', () => {
-    const aberto = zinhoChat.style.display === 'block';
-    zinhoChat.style.display = aberto ? 'none' : 'block';
+    zinhoChat.style.display = zinhoChat.style.display === 'block' ? 'none' : 'block';
   });
 
-  // Respostas do chatbot
+  // Respostas do Zinho
   const respostas = {
     faixa: "As faixas indicam o progresso do aluno no Jiu-Jitsu, do iniciante ao mestre.",
     kimono: "Recomendamos kimonos de algodão, próprios para Jiu-Jitsu, nas cores branca, azul ou preta.",
@@ -32,36 +32,39 @@ document.addEventListener('DOMContentLoaded', () => {
     treinamento: "Veja nossos horários de treino na seção de Treinamentos."
   };
 
+  // Envia mensagem com efeito de digitação
+  function enviarMensagem(resposta) {
+    const novaMsg = document.createElement('div');
+    novaMsg.className = 'msg-zinho';
+    novaMsg.textContent = '';
+    mensagensZinho.appendChild(novaMsg);
+
+    let i = 0;
+    function digitarTexto() {
+      if (i < resposta.length) {
+        novaMsg.textContent += resposta.charAt(i);
+        i++;
+        setTimeout(digitarTexto, 30);
+      } else {
+        mensagensZinho.scrollTop = mensagensZinho.scrollHeight;
+      }
+    }
+    digitarTexto();
+  }
+
+  // Ações dos botões do Zinho
   botoesPerguntas.forEach(btn => {
     btn.addEventListener('click', () => {
       const topico = btn.dataset.topico;
       const resposta = respostas[topico] || "Desculpe, não entendi sua pergunta.";
-      const novaMsg = document.createElement('div');
-      novaMsg.className = 'msg-zinho';
-      novaMsg.textContent = '';
-      mensagensZinho.appendChild(novaMsg);
-      
-      // Simula a digitação
-      let i = 0;
-      function digitarTexto() {
-        if (i < resposta.length) {
-          novaMsg.textContent += resposta.charAt(i);
-          i++;
-          setTimeout(digitarTexto, 30); // velocidade da digitação (30ms por letra)
-        } else {
-          mensagensZinho.scrollTop = mensagensZinho.scrollHeight;
-          document.getElementById('limpar-chat').addEventListener('click', function() {
-            document.getElementById('zinho-mensagens').innerHTML = '';
-          });
-        }
-      }
-      digitarTexto();
-      
-
-      if (topico === 'treinamento') {
-        mostrarTreinamento();
-      }
+      enviarMensagem(resposta);
+      if (topico === 'treinamento') mostrarTreinamento();
     });
+  });
+
+  // Limpar o chat (volta à mensagem inicial)
+  botaoLimparChat?.addEventListener('click', () => {
+    mensagensZinho.innerHTML = `<div class="msg-zinho">Olá! Eu sou o Zinho. Como posso te ajudar?</div>`;
   });
 
   // ===== Slideshow =====
@@ -69,12 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const slides = document.getElementsByClassName('mySlides');
 
   function showSlides() {
-    Array.from(slides).forEach(slide => (slide.style.display = 'none'));
+    Array.from(slides).forEach(slide => slide.style.display = 'none');
     slideIndex = (slideIndex + 1 > slides.length) ? 1 : slideIndex + 1;
     if (slides[slideIndex - 1]) {
       slides[slideIndex - 1].style.display = 'block';
     }
-    setTimeout(showSlides, 3000);
+    setTimeout(showSlides, 3000); // muda a imagem a cada 3 segundos
   }
 
   showSlides();
@@ -106,21 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
     valorTotalEl.textContent = `Total: R$ 0,00`;
   };
 
-  // ===== Formulário de Aula Experimental =====
+  // ===== Formulário Aula Experimental =====
   const formAula = document.getElementById('form-aula');
   const msgConfirmacao = document.getElementById('mensagem-confirmacao');
 
-  if (formAula) {
-    formAula.addEventListener('submit', e => {
-      e.preventDefault();
-      formAula.reset();
-      msgConfirmacao.style.display = 'block';
-      setTimeout(() => msgConfirmacao.style.display = 'none', 5000);
-    });
-  }
+  formAula?.addEventListener('submit', e => {
+    e.preventDefault();
+    formAula.reset();
+    msgConfirmacao.style.display = 'block';
+    setTimeout(() => msgConfirmacao.style.display = 'none', 5000);
+  });
 });
 
-// ===== Função para scroll até seção de Treinamento =====
+// ===== Função global para rolar até a seção de Treinamentos =====
 function mostrarTreinamento() {
   const secao = document.getElementById('treinamentos');
   if (secao) {
